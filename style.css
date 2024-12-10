@@ -907,3 +907,42 @@ body::before {
         margin-bottom: 1rem;
     }
 }
+
+.footer {
+    padding: 2rem;
+    text-align: center;
+    background: rgba(13, 14, 35, 0.4);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-email {
+    color: #92FFEC;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(146, 255, 236, 0.1);
+}
+
+.footer-email:hover {
+    background: rgba(146, 255, 236, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(146, 255, 236, 0.2);
+}
+
+@media screen and (max-width: 480px) {
+    .footer-email {
+        font-size: 0.9rem;
+    }
+}
+
+.social-icon.email {
+    font-size: 2rem;
+    color: #92FFEC;
+}
+
+.social-icon.email:hover {
+    color: #FFF94C;
+}
