@@ -102,6 +102,7 @@ body::before {
     transform: rotate(-2deg);
     animation: wobble 2s ease-in-out infinite;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .title::before {
@@ -208,6 +209,119 @@ body::before {
 .about {
     min-height: 100vh;
     padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5rem;
+    background: rgba(13, 14, 35, 0.4);
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+/* Add hover effect to the content box */
+.about-content:hover {
+    transform: translateY(-5px);
+}
+
+.about-content h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+    background: linear-gradient(45deg, #FF61D8, #FFF94C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Add decorative underline to heading */
+.about-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FF61D8, #FFF94C, transparent);
+}
+
+.about-content p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin: 0 1rem 1rem;
+    padding-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add new animations */
+@keyframes morphCorner {
+    0%, 100% {
+        border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+    }
+    50% {
+        border-radius: 60% 40% 35% 65% / 45% 40% 60% 55%;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .about {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-content {
+        padding: 4rem 3rem;
+    }
+
+    .about-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about {
+        padding: 2rem 1rem;
+    }
+
+    .about-content {
+        padding: 3rem 2rem;
+        border-radius: 30px;
+    }
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
 }
 
 .stats {
@@ -216,6 +330,8 @@ body::before {
     gap: 2rem;
     margin-bottom: 4rem;
     flex-wrap: wrap;
+    max-width: 900px;
+    width: 100%;
 }
 
 .stat-card {
@@ -254,393 +370,146 @@ body::before {
     text-shadow: 0 0 10px rgba(255, 97, 216, 0.5);
 }
 
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: rgba(13, 14, 35, 0.4);
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
+.tokenomics {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.about-content h2 {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 3rem;
-    margin-bottom: 2rem;
+.tokenomics-container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.token-info-card {
+    background: rgba(13, 14, 35, 0.4);
+    border-radius: 30px;
+    padding: 3rem;
     text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.token-info-card h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
     background: linear-gradient(45deg, #FF61D8, #FFF94C);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
 }
 
-.about-content p {
-    font-size: 2rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 0 10px rgba(255, 97, 216, 0.2);
-}
-
-.about-content p:last-child {
-    margin-bottom: 0;
-}
-
-/* Mobile Responsive Styles */
-@media screen and (max-width: 768px) {
-    .title {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero {
-        padding: 1rem;
-    }
-
-    .social-links {
-        gap: 1rem;
-        padding: 0 1rem;
-    }
-
-    .social-icon {
-        width: 55px;
-        height: 55px;
-    }
-
-    .social-icon img {
-        width: 30px;
-        height: 30px;
-    }
-
-    .social-icon.dex img {
-        width: 35px;
-        height: 35px;
-    }
-
-    .about {
-        padding: 2rem 1rem;
-    }
-
-    .stats {
-        gap: 1rem;
-    }
-
-    .stat-card {
-        padding: 1rem 1.5rem;
-        min-width: 140px;
-    }
-
-    .stat-card h3 {
-        font-size: 2rem;
-    }
-
-    .stat-card p {
-        font-size: 0.9rem;
-    }
-
-    .about-content {
-        padding: 1.5rem;
-    }
-
-    .about-content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .about-content p {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1rem;
-    }
-
-    .hero-armadillo.main {
-        width: 250px;
-        right: -50px;
-    }
-
-    .hero-armadillo.secondary {
-        width: 200px;
-        left: -30px;
-    }
-
-    .hero-armadillo.tertiary {
-        width: 150px;
-    }
-}
-
-/* Small Mobile Devices */
-@media screen and (max-width: 480px) {
-    .title {
-        font-size: 2.8rem;
-    }
-
-    .social-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        max-width: 280px;
-        margin: 2rem auto 0;
-    }
-
-    .social-icon {
-        width: 50px;
-        height: 50px;
-        margin: 0;
-    }
-
-    .stats {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .stat-card {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .about-content h2 {
-        font-size: 2rem;
-    }
-
-    .hero-armadillo.main {
-        width: 200px;
-        opacity: 0.1;
-    }
-
-    .hero-armadillo.secondary {
-        width: 150px;
-        opacity: 0.1;
-    }
-
-    .hero-armadillo.tertiary {
-        width: 120px;
-        opacity: 0.1;
-    }
-}
-
-.tokenomics {
-    min-height: 100vh;
-    padding: 6rem 2rem;
+.contract-address {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 0 auto;
 }
 
-.tokenomics h2 {
-    font-family: 'Permanent Marker', cursive;
-    font-size: 4rem;
+.contract-address code {
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: #92FFEC;
+    letter-spacing: 1px;
+}
+
+.copy-button {
+    background: rgba(146, 255, 236, 0.1);
+    border: none;
+    color: #92FFEC;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+    background: rgba(146, 255, 236, 0.2);
+    transform: translateY(-2px);
+}
+
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.tokenomics-card {
+    background: rgba(13, 14, 35, 0.4);
+    border-radius: 25px;
+    padding: 2.5rem;
     text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.tokenomics-card:hover {
+    transform: translateY(-5px);
+}
+
+.tokenomics-card h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
     background: linear-gradient(45deg, #FF61D8, #FFF94C);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 2;
 }
 
-.tokenomics .subtitle {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 6rem;
-    text-align: center;
-    font-weight: 600;
-    position: relative;
-    z-index: 2;
-}
-
-.tokenomics-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.tokenomics-image {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    margin: 2rem auto;
-    border-radius: 50%;
-    background: rgba(20, 20, 40, 0.4);
-    box-shadow: 0 0 40px rgba(76, 56, 127, 0.6);
-    overflow: hidden;
-}
-
-.token-mascot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 45%;
-    mix-blend-mode: screen;
-    transform: scale(1.4);
-    border-radius: 50%;
-}
-
-.tokenomics-image::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(45deg, #2a1f3d, #372a52);
-    border-radius: 50%;
-    z-index: -1;
-}
-
-.tokenomics-image::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.token-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.info-card {
-    background: rgba(146, 255, 236, 0.1);
-    padding: 2rem;
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
-    border: 2px solid rgba(146, 255, 236, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px);
-}
-
-.info-card h3 {
-    font-size: 1.2rem;
-    color: #92FFEC;
-    margin-bottom: 0.5rem;
-    letter-spacing: 1px;
-}
-
-.info-card p {
+.tokenomics-card p {
     font-size: 1.8rem;
-    color: white;
-    font-weight: 700;
-    word-break: break-all;
-}
-
-.info-card .contract {
-    font-size: 1.2rem;
-    font-family: monospace;
+    color: #92FFEC;
+    font-weight: bold;
 }
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     .tokenomics {
-        padding: 4rem 1rem;
+        padding: 4rem 1.5rem;
     }
 
-    .tokenomics h2 {
-        font-size: 3rem;
+    .token-info-card {
+        padding: 2rem;
     }
 
-    .tokenomics .subtitle {
-        margin-bottom: 4rem;
-    }
-
-    .tokenomics-content {
+    .contract-address {
         flex-direction: column;
-        gap: 3rem;
+        padding: 1rem;
     }
 
-    .tokenomics-image {
-        width: 300px;
-        height: 300px;
-        margin: 1.5rem auto;
-    }
-
-    .token-mascot {
-        transform: scale(1.35);
-    }
-
-    .info-card {
-        padding: 1.5rem;
-    }
-
-    .info-card p {
-        font-size: 1.4rem;
-    }
-
-    .tokenomics-image {
-        margin-top: -30px;
-    }
-    .tokenomics-image::before {
-        width: calc(100% - 30px);
-        padding-bottom: calc(100% - 30px);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .tokenomics {
-        padding: 3rem 1rem;
-    }
-
-    .tokenomics h2 {
-        font-size: 2.5rem;
-    }
-
-    .tokenomics .subtitle {
-        margin-bottom: 3rem;
-    }
-
-    .token-mascot {
-        width: 250px;
-        height: 250px;
-        margin: 1rem auto;
-        transform: scale(1.3);
-    }
-
-    .info-card {
-        padding: 1.2rem;
-    }
-
-    .info-card h3 {
+    .contract-address code {
         font-size: 1rem;
+        word-break: break-all;
     }
 
-    .info-card p {
-        font-size: 1.2rem;
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .info-card .contract {
-        font-size: 0.9rem;
+    .tokenomics-card {
+        padding: 2rem;
     }
 
-    .tokenomics-image {
-        margin-top: -20px;
+    .tokenomics-card h3 {
+        font-size: 1.3rem;
     }
-    .tokenomics-image::before {
-        width: calc(100% - 20px);
-        padding-bottom: calc(100% - 20px);
-    }
-}
 
-@keyframes rotateBorder {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+    .tokenomics-card p {
+        font-size: 1.5rem;
     }
 }
 
@@ -937,5 +806,57 @@ body::before {
     .about h2, .tiktok-showcase h2, .how-to-buy h2 {
         font-size: 2.5rem;
         margin-bottom: 2.5rem;
+    }
+}
+
+.tokenomics-image {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(20, 20, 40, 0.4);
+    box-shadow: 0 0 40px rgba(76, 56, 127, 0.6);
+}
+
+.token-mascot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .tokenomics-image {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .token-mascot {
+        transform: scale(1.2);
+    }
+}
+
+/* Update mobile styles */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 4rem;
+        text-shadow: 3px 3px 0px #9c0f7f,
+                     6px 6px 0px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 3rem;
+        text-shadow: 2px 2px 0px #9c0f7f,
+                     4px 4px 0px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1rem;
     }
 }

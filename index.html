@@ -20,7 +20,7 @@
                 <h1 class="title">CROISSANT</h1>
                 <div class="tokenomics-image">
                     <video autoplay loop muted playsinline class="token-mascot">
-                        <source src="assets/circle_video.mov" type="video/quicktime">
+                        <source src="assets/video.mov" type="video/quicktime">
                     </video>
                 </div>
                 <div class="social-links">
@@ -51,6 +51,31 @@
             <div class="about-content">
                 <h2>ABOUT CROISSANT</h2>
                 <p>Meet Croissant, the most adorkable football-playing armadillo on Solana! 🏈 This lil' superstar can't spell (but who needs spelling when you're this cute?), and he's taking TikTok by storm with his pawsome moves!</p>
+            </div>
+        </section>
+
+        <section class="tokenomics">
+            <div class="tokenomics-container">
+                <div class="token-info-card">
+                    <h2>CONTRACT ADDRESS</h2>
+                    <div class="contract-address">
+                        <code>5Hx5iXtTFDGNpXPyTMbwMvkH6Uh3bycUz6Atdmzmpump</code>
+                        <button class="copy-button" onclick="copyToClipboard('5Hx5iXtTFDGNpXPyTMbwMvkH6Uh3bycUz6Atdmzmpump')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tokenomics-grid">
+                    <div class="tokenomics-card">
+                        <h3>TOTAL SUPPLY</h3>
+                        <p>1,000,000,000</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <h3>Liquidity Pool</h3>
+                        <p>Burned</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -124,5 +149,16 @@
 
         </section>
     </main>
+
+    <script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        const button = document.querySelector('.copy-button');
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(() => {
+            button.innerHTML = '<i class="fas fa-copy"></i>';
+        }, 2000);
+    }
+    </script>
 </body>
 </html>
